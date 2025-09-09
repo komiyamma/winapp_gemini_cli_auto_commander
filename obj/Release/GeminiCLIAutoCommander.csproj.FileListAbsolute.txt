@@ -1,0 +1,6 @@
+G:\vs_project\GeminiCLIAutoCommander\bin\Release\GeminiCLIAutoCommander.exe
+G:\vs_project\GeminiCLIAutoCommander\bin\Release\GeminiCLIAutoCommander.pdb
+G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.csproj.AssemblyReference.cache
+G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.csproj.CoreCompileInputs.cache
+G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.exe
+G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.pdb
