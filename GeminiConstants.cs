@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -8,7 +8,7 @@ namespace GeminiCLIAutoCommander
     {
         public static readonly string GeminiCmdFileName = "gemini.cmd";
 
-        // ÀÛ‚Ég—p‚³‚ê‚éİ’è’l (GeminiCLIAutoCommander.config ‚Ì GeminiModel / GeminiPrompt ‚©‚ç“Ç‚İ‚İ)
+        // å®Ÿéš›ã«ä½¿ç”¨ã•ã‚Œã‚‹è¨­å®šå€¤ (GeminiCLIAutoCommander.config ã® GeminiModel / GeminiPrompt ã‹ã‚‰èª­ã¿è¾¼ã¿)
         public static readonly string Model;
         public static readonly string PromptJapanese;
 

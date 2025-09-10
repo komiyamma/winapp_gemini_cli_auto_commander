@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -13,7 +13,7 @@ namespace GeminiCLIAutoCommander
         {
             _handle = CreateJobObject(IntPtr.Zero, null);
             if (_handle == IntPtr.Zero || _handle == new IntPtr(-1))
-                throw new InvalidOperationException("CreateJobObject Ž¸”s");
+                throw new InvalidOperationException("CreateJobObject å¤±æ•—");
             var info = new JOBOBJECT_EXTENDED_LIMIT_INFORMATION();
             info.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
             int length = Marshal.SizeOf(typeof(JOBOBJECT_EXTENDED_LIMIT_INFORMATION));
@@ -22,7 +22,7 @@ namespace GeminiCLIAutoCommander
             {
                 Marshal.StructureToPtr(info, ptr, false);
                 if (!SetInformationJobObject(_handle, JobObjectInfoType.ExtendedLimitInformation, ptr, (uint)length))
-                    throw new InvalidOperationException("SetInformationJobObject Ž¸”s");
+                    throw new InvalidOperationException("SetInformationJobObject å¤±æ•—");
             }
             finally { Marshal.FreeHGlobal(ptr); }
         }
@@ -30,7 +30,7 @@ namespace GeminiCLIAutoCommander
         public void AddProcess(Process p)
         {
             if (!AssignProcessToJobObject(_handle, p.Handle))
-                throw new InvalidOperationException("AssignProcessToJobObject Ž¸”s");
+                throw new InvalidOperationException("AssignProcessToJobObject å¤±æ•—");
         }
 
         public void Dispose()
