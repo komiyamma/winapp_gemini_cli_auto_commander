@@ -4,3 +4,10 @@ G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.csproj.A
 G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.csproj.CoreCompileInputs.cache
 G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.exe
 G:\vs_project\GeminiCLIAutoCommander\obj\Release\GeminiCLIAutoCommander.pdb
+G:\repogitory\winapp_gemini_cli_auto_commander\bin\Release\GeminiCLIAutoCommander.config
+G:\repogitory\winapp_gemini_cli_auto_commander\bin\Release\GeminiCLIAutoCommander.exe
+G:\repogitory\winapp_gemini_cli_auto_commander\bin\Release\GeminiCLIAutoCommander.pdb
+G:\repogitory\winapp_gemini_cli_auto_commander\obj\Release\GeminiCLIAutoCommander.csproj.AssemblyReference.cache
+G:\repogitory\winapp_gemini_cli_auto_commander\obj\Release\GeminiCLIAutoCommander.csproj.CoreCompileInputs.cache
+G:\repogitory\winapp_gemini_cli_auto_commander\obj\Release\GeminiCLIAutoCommander.exe
+G:\repogitory\winapp_gemini_cli_auto_commander\obj\Release\GeminiCLIAutoCommander.pdb

@@ -2,44 +2,55 @@
 using System.Configuration;
 using System.IO;
 
-namespace GeminiCLIAutoCommander
+namespace GeminiCLIAutoCommander;
+
+internal static class GeminiConstants
 {
-    internal static class GeminiConstants
+    public static readonly string GeminiCmdFileName = "gemini.cmd";
+
+    // 設定はローカルの "GeminiCLIAutoCommander.config" から読み込み
+    private static readonly string ConfigFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GeminiCLIAutoCommander.config");
+    private static readonly Configuration ExternalConfig = LoadExternalConfig(ConfigFilePath);
+
+    public static readonly string Model = GetAppSetting("GeminiModel");
+    public static readonly string PromptJapanese = GetAppSetting("GeminiPrompt");
+    public static readonly int LimitMinutes = GetAppSettingInt("LimitMinutes", 0);
+
+    private static Configuration LoadExternalConfig(string path)
     {
-        public static readonly string GeminiCmdFileName = "gemini.cmd";
-
-        // 設定はローカルの "GeminiCLIAutoCommander.config" から読み込み
-        private static readonly string ConfigFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GeminiCLIAutoCommander.config");
-        private static readonly Configuration ExternalConfig = LoadExternalConfig(ConfigFilePath);
-
-        public static readonly string Model = GetAppSetting("GeminiModel");
-        public static readonly string PromptJapanese = GetAppSetting("GeminiPrompt");
-
-        private static Configuration LoadExternalConfig(string path)
+        try
         {
-            try
+            var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
+            return ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static string GetAppSetting(string key)
+    {
+        try
+        {
+            if (ExternalConfig != null)
             {
-                var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
-                return ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
-            }
-            catch
-            {
-                return null;
+                var setting = ExternalConfig.AppSettings.Settings[key];
+                if (setting != null) return setting.Value ?? string.Empty;
             }
         }
+        catch { }
+        return string.Empty;
+    }
 
-        private static string GetAppSetting(string key)
+    private static int GetAppSettingInt(string key, int defaultValue)
+    {
+        try
         {
-            try
-            {
-                if (ExternalConfig != null)
-                {
-                    var setting = ExternalConfig.AppSettings.Settings[key];
-                    if (setting != null) return setting.Value ?? string.Empty;
-                }
-            }
-            catch { }
-            return string.Empty;
+            var s = GetAppSetting(key);
+            if (int.TryParse(s, out var v)) return v;
         }
+        catch { }
+        return defaultValue;
     }
 }

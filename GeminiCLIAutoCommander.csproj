@@ -5,6 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{99133EEF-BA3D-47F8-A89D-70E0812C3CBC}</ProjectGuid>
+    <LangVersion>latest</LangVersion>
     <OutputType>Exe</OutputType>
     <RootNamespace>GeminiCLIAutoCommander</RootNamespace>
     <AssemblyName>GeminiCLIAutoCommander</AssemblyName>
