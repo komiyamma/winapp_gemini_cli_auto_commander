@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 
 namespace GeminiCLIAutoCommander
 {
@@ -7,8 +8,38 @@ namespace GeminiCLIAutoCommander
     {
         public static readonly string GeminiCmdFileName = "gemini.cmd";
 
-        // 実際に使用される設定値 (App.config の appSettings から読み込み)
-        public static readonly string Model = ConfigurationManager.AppSettings["GeminiModel"] ?? string.Empty;
-        public static readonly string PromptJapanese = ConfigurationManager.AppSettings["GeminiPrompt"] ?? string.Empty;
+        // 設定はローカルの "GeminiCLIAutoCommander.config" から読み込み
+        private static readonly string ConfigFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GeminiCLIAutoCommander.config");
+        private static readonly Configuration ExternalConfig = LoadExternalConfig(ConfigFilePath);
+
+        public static readonly string Model = GetAppSetting("GeminiModel");
+        public static readonly string PromptJapanese = GetAppSetting("GeminiPrompt");
+
+        private static Configuration LoadExternalConfig(string path)
+        {
+            try
+            {
+                var map = new ExeConfigurationFileMap { ExeConfigFilename = path };
+                return ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string GetAppSetting(string key)
+        {
+            try
+            {
+                if (ExternalConfig != null)
+                {
+                    var setting = ExternalConfig.AppSettings.Settings[key];
+                    if (setting != null) return setting.Value ?? string.Empty;
+                }
+            }
+            catch { }
+            return string.Empty;
+        }
     }
 }
