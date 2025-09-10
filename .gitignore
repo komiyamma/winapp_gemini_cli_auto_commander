@@ -1,0 +1,46 @@
+# .gitignore for Visual Studio, C#, and Windows
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio local settings
+.vs/
+
+# Copilot Snapshots
+CopilotSnapshots/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+
+# Others
+*.vspscc
+*.vssscc
+*.pdb
+*.cache
+*.dbmdl
+*.bak
+*.ncb
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# Configuration
+*.config.user
+
+# Rider
+.idea/
+*.sln.iml
