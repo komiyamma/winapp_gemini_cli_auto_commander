@@ -27,7 +27,7 @@
 <configuration>
   <appSettings>
     <!-- 使用するGeminiのモデル -->
-    <add key="GeminiModel" value="gemini-1.5-flash" />
+    <add key="GeminiModel" value="gemini-2.5-flash" />
 
     <!-- Geminiに渡すプロンプト -->
     <add key="GeminiPrompt" value="@my_command.md を実行してください。..." />
