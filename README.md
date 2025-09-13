@@ -1,4 +1,4 @@
-# GeminiCLIAutoCommander
+# GeminiCLIAutoCommander v1.0.0
 
 ## 概要
 
