@@ -1,4 +1,4 @@
-# GeminiCLIAutoCommander v1.0.0
+# GeminiCLIAutoCommander [![GitHub release (latest by date)](https://img.shields.io/github/v/release/komiyamma/winapp_gemini_cli_auto_commander)](https://github.com/komiyamma/winapp_gemini_cli_auto_commander/releases/latest)
 
 ## 概要
 
